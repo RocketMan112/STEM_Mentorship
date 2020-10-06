@@ -10,12 +10,14 @@ class DroneAI:
     def __init__(self, config, drone_controller, person_detector):
         log.info("Initialized DroneAI with person_detector: %s",
                  person_detector.name())
-        self.person_detector = person_detector
         self.config = config
+        self.drone_controller = drone_controller
+        self.person_detector = person_detector
 
     def run(self):
         log.info("Starting DroneAI")
-        log.debug("Nitty gritty details")
+        log.info("Drone is currently in state: %s" %
+                 self.drone_controller.mode())
         log.warning("Unusual reading, ignoring")
         log.error("Aborting")
         pass
